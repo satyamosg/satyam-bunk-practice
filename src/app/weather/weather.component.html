@@ -1,14 +1,38 @@
-<h1>
-  weather fuckin works!
-</h1>
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/weather">Weather</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/quiz">Quiz</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="/football-team">Football Team</a>
+  </li>
+</ul>
+<h2>
+  Weather and dat
+</h2>
+<div>
+  <p>
+    The current temperature in the {{ (forecastLondon | async)?.name }} is {{ (forecastLondon | async)?.main.temp }}C
+    (min: {{ (forecastLondon | async)?.main.temp_min }}C. max: {{ (forecastLondon | async)?.main.temp_max }}C), 
+    with a humidity of {{ (forecastLondon | async)?.main.humidity }}%.
+  </p>
+  <p>
+    The current temperature in the {{ (forecastBristol | async)?.name }} is {{ (forecastBristol | async)?.main.temp }}C
+    (min: {{ (forecastBristol | async)?.main.temp_min }}C. max: {{ (forecastBristol | async)?.main.temp_max }}C), 
+    with a humidity of {{ (forecastBristol | async)?.main.humidity }}%
+  </p>
+  <p>
+    The current temperature in {{ (forecastRome | async)?.name }} is {{ (forecastRome | async)?.main.temp }}C
+    (min: {{ (forecastRome | async)?.main.temp_min }}C. max: {{ (forecastRome | async)?.main.temp_max }}C), 
+    with a humidity of {{ (forecastRome | async)?.main.humidity }}%
+  </p>
+</div>
 
-<p>
-  {{ (forecast | async)?.name }}
-</p>
-<p>
-  {{ (forecast | async)?.main.temp }}
-</p>
-
-<p *ngIf="error">
+<!-- <p *ngIf="error">
   testicles 
-</p>
+</p> -->

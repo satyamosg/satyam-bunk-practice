@@ -10,7 +10,7 @@ export class QuizComponent implements OnInit {
   submit(formValue) {
     console.log(formValue)
     if (formValue == "pizza") {
-      console.log("great success")
+      console.log('great success')
     }
     else console.log ("ballz")
   }

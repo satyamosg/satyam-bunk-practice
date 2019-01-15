@@ -21,15 +21,20 @@ interface IWeatherAPI {
 })
 export class WeatherComponent implements OnInit {
 
-  private forecast: Observable<IWeather>;
+  private forecastLondon: Observable<IWeather>;
+  private forecastBristol: Observable<IWeather>;
+  private forecastRome: Observable<IWeather>;
+
   private error = false;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.forecast = this.http.get<IWeather>('http://api.openweathermap.org/data/2.5/weather?id=2643744&APPID=f4bbeb8ec1a8fb95591f2cf112aaa575');
-    
+    this.forecastLondon = this.http.get<IWeather>('http://api.openweathermap.org/data/2.5/weather?id=2643744&units=metric&APPID=f4bbeb8ec1a8fb95591f2cf112aaa575');
+    this.forecastBristol = this.http.get<IWeather>('http://api.openweathermap.org/data/2.5/weather?id=4749005&units=metric&APPID=f4bbeb8ec1a8fb95591f2cf112aaa575');
+    this.forecastRome = this.http.get<IWeather>('http://api.openweathermap.org/data/2.5/weather?id=4219762&units=metric&APPID=f4bbeb8ec1a8fb95591f2cf112aaa575');
   }
+
 
 }
 
@@ -39,4 +44,3 @@ export class WeatherComponent implements OnInit {
 //     return new Observable<IWeather>()
 //   })
 // );
-
