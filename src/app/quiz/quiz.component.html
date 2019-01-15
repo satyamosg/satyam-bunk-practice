@@ -1,3 +1,56 @@
-<p>
-  quiz works!
-</p>
+<form #oneQuestionQuiz="ngForm" (ngSubmit)="submit(oneQuestionQuiz.value)">
+  <label for="quiz" class=""><h2>Choose wisely</h2></label>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        name="quiz"
+        class="form-check-input"
+        #oneQuestionQuiz="ngModel"
+        ngModel
+        required
+        value="potato"
+        >Potato
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        name="quiz"
+        class="form-check-input"
+        #oneQuestionQuiz="ngModel"
+        ngModel
+        required
+        value="pizza"
+        >Pizza
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        name="quiz"
+        class="form-check-input"
+        #oneQuestionQuiz="ngModel"
+        ngModel
+        required
+        value="Parsnips"
+        >Parsnips
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input
+        type="radio"
+        name="quiz"
+        class="form-check-input"
+        #oneQuestionQuiz="ngModel"
+        ngModel
+        required
+        value="Parsley"
+        >Parsley
+    </label>
+  </div>
+  <button [disabled]="oneQuestionQuiz.invalid " type="submit" class="btn btn-primary">Submit</button>
+</form>
