@@ -1,75 +1,79 @@
-<ul class="nav justify-content-center">
+<ul class="nav nav-tabs justify-content-center">
     <li class="nav-item">
-      <a class="nav-link" href="#">Home</a>
+      <a class="nav-link" a routerLink="">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/weather">Weather</a>
+      <a class="nav-link" a routerLink="/weather">Weather</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="/quiz">Quiz</a>
+      <a class="nav-link active" a routerLink="/quiz">Quiz</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled" href="/football-team">Football Team</a>
+      <a class="nav-link disabled" a routerLink="/football-team">Football Team</a>
     </li>
   </ul>
-<form #oneQuestionQuiz="ngForm" (ngSubmit)="submit(oneQuestionQuiz.value)">
-  <label for="quiz" class=""><h2>Choose wisely</h2></label>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input
-        type="radio"
-        name="quiz"
-        class="form-check-input"
-        #oneQuestionQuiz="ngModel"
-        ngModel
-        required
-        value="potato"
-        >Potato
-    </label>
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input
-        type="radio"
-        name="quiz"
-        class="form-check-input"
-        #oneQuestionQuiz="ngModel"
-        ngModel
-        required
-        value="pizza"
-        >Pizza
-    </label>
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input
-        type="radio"
-        name="quiz"
-        class="form-check-input"
-        #oneQuestionQuiz="ngModel"
-        ngModel
-        required
-        value="Parsnips"
-        >Parsnips
-    </label>
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input
-        type="radio"
-        name="quiz"
-        class="form-check-input"
-        #oneQuestionQuiz="ngModel"
-        ngModel
-        required
-        value="Parsley"
-        >Parsley
-    </label>
-  </div>
-  <div *ngIf="oneQuestionQuiz.touched && oneQuestionQuiz.invalid" >
-    <small *ngIf="oneQuestionQuiz.errors.required" class="form-text text-danger">Password is required</small>
-    <small *ngIf="oneQuestionQuiz.errors.minlength" class="form-text text-danger">Password must be at least 6 characters</small>
-    <small *ngIf="oneQuestionQuiz.errors.pattern" class="form-text text-danger">Password must contain a combination of uppercase, lowercase and numbers</small>
-  </div>
-  <button [disabled]="oneQuestionQuiz.invalid" type="submit" class="btn btn-primary">Submit</button>
-</form>
+<div class="ml-4 mt-4">
+  <form #oneQuestionQuiz="ngForm" (ngSubmit)="submit(oneQuestionQuiz.value.quiz)">
+    <label for="quiz" class=""><h2>Choose wisely</h2></label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          name="quiz"
+          class="form-check-input"
+          #potato="ngModel"
+          ngModel
+          required
+          value="potato"
+          >Potato
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          name="quiz"
+          class="form-check-input"
+          #pizza="ngModel"
+          ngModel
+          required
+          value="pizza"
+          pattern="pizza"
+          >Pizza
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          name="quiz"
+          class="form-check-input"
+          #parsnips="ngModel"
+          ngModel
+          required
+          value="Parsnips"
+          >Parsnips
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input
+          type="radio"
+          name="quiz"
+          class="form-check-input"
+          #parsley="ngModel"
+          ngModel
+          required
+          value="Parsley"
+          >Parsley
+      </label>
+    </div>
+    <div *ngIf="oneQuestionQuiz.touched" >
+      <small *ngIf="oneQuestionQuiz.value.quiz !== pizzaa" class="form-text text-danger">Wrong answer!!1</small>
+      <small *ngIf="oneQuestionQuiz.value.quiz == pizzaa" class="form-text text-success">Correct!!!1!</small>
+    </div>
+    <button  type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!-- [disabled]="oneQuestionQuiz.invalid" -->

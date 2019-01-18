@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
+pizzaa = "pizza";
+
   submit(formValue) {
     console.log(formValue)
-    if (formValue == "pizza") {
+    if (formValue == this.pizzaa) {
       console.log('great success')
     }
     else console.log ("ballz")
